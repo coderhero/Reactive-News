@@ -3,6 +3,7 @@ import { Button, Row, Col } from 'antd';
 import logo from '../news-logo.png';
 import NavBar from './NavBar';
 import NavLogin from './NavLogin';
+import SearchBox from './SearchBox';
 
 class NewsHeader extends Component {
   constructor(props) {
@@ -12,10 +13,14 @@ class NewsHeader extends Component {
       userName: '',
       currentNavTab: this.props.newsCategory, //determine which Tab page is showing
       isToshowModal: false, // determine if to show the Login and Singup modal
+      searchTerm: '',
     }
     this.menuItemSelect = this.props.menuItemSelect;
+    this.handleSearch = this.props.handleSearch;
+    this.handleUserInput = this.handleUserInput.bind(this);
     this.handleUserLogOut = this.handleUserLogOut.bind(this);
     this.handleUserLogIn = this.handleUserLogIn.bind(this);
+
   }
 
   handleUserLogIn() {
@@ -36,29 +41,41 @@ class NewsHeader extends Component {
         })}, 300)
   }
 
+  handleUserInput(e) {
+    console.log(e.target.value)
+    this.setState(
+      {searchTerm: e.target.value}
+    )
+  }
+
   render() {
     return (
-      <header>
-        <Row>
-          <Col span={1}></Col>
-          <Col span={4}>
+      <header style={{marginTop: 5}}>
+        <Row type="flex" align="middle">
+          <Col span={2}>
             <a className="NewsLogo">
               <img src={logo} alt='News Logo'/>
             </a>
           </Col>
-          <Col span={14} className="NavBar">
+          <Col span={15} className="NavBar">
             <NavBar currentNavTab={this.state.currentNavTab}
                       menuItemSelect={this.menuItemSelect}
                     />
           </Col>
-          <Col span={4} className="NavLogin">
+          <Col span={4} className="SearchBox">
+            <SearchBox handleSearch={this.handleSearch}
+                       handleUserInput={this.handleUserInput}
+                       value={this.state.searchTerm}
+                    />
+
+          </Col>
+          <Col span={3} className="NavLogin">
             <NavLogin isLoggedIn={this.state.isLoggedIn}
                       handleUserLogOut={this.handleUserLogOut}
                       handleUserLogIn={this.handleUserLogIn}
                       userName={this.state.userName}
                      />
           </Col>
-
         </Row>
       </header>
     )

@@ -11,9 +11,11 @@ class App extends Component {
     super();
     this.state={
       currentMainPage: 'breakingNew',
+
     }
     this.showMainList = this.showMainList.bind(this);
     this.menuItemSelect = this.menuItemSelect.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
   }
   async componentDidMount() {
 
@@ -21,6 +23,9 @@ class App extends Component {
   menuItemSelect(e) {
     this.setState({currentMainPage: e.key})
     // this.showMainList()
+  }
+  handleSearch(value, e) {
+    this.setState({currentMainPage: value})
   }
 
   showMainList() {
@@ -30,11 +35,11 @@ class App extends Component {
         />
   }
 
-
   render() {
     return (
       <div className="App">
-        <NewsHeader menuItemSelect={this.menuItemSelect}/>
+        <NewsHeader menuItemSelect={this.menuItemSelect}
+                    handleSearch={this.handleSearch}/>
         {this.showMainList()}
         <NewsFooter />
       </div>
