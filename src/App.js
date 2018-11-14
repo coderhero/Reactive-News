@@ -6,36 +6,30 @@ import NewsMainList from './components/MainList';
 import NewsHeader from './components/Header';
 import NewsFooter from './components/Footer';
 
-
-const BASE_URL = 'https://newsapi.org/v2/top-headlines?' +
-          'country=us&' +
-          'apiKey=a70ded16d81144f9b3f50098ea0ef879'
 class App extends Component {
   constructor() {
     super();
     this.state={
-      newsData: null,
-      currentMainPage: null,
+      currentMainPage: 'breakingNew',
     }
     this.showMainList = this.showMainList.bind(this);
+    this.menuItemSelect = this.menuItemSelect.bind(this);
   }
   async componentDidMount() {
-    const resp = await axios(BASE_URL)
-    console.log(resp)
-    this.setState(
-      {newsData: resp.data}
-    )
-  }
-  menuItemSelect() {
 
+  }
+  menuItemSelect(e) {
+    this.setState({currentMainPage: e.key})
+    // this.showMainList()
   }
 
   showMainList() {
-    const page = this.state.currentMainPage;
+    const newsCategory = this.state.currentMainPage;
     return <NewsMainList
-          newsCategory={this.state.currentMainPage}
+          newsCategory={newsCategory}
         />
   }
+
 
   render() {
     return (

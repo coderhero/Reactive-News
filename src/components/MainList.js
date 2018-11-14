@@ -1,44 +1,44 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import NewsCard from './NewsCard'
 
-
-const BASE_URL = 'https://newsapi.org/v2/top-headlines?' +
-          'country=us&' +
-          'apiKey=a70ded16d81144f9b3f50098ea0ef879'
-const HEADLINES_URL = 'https://newsapi.org/v2/top-headlines?' +
-          'country=us&' +
-          'apiKey=a70ded16d81144f9b3f50098ea0ef879'
-// const TECH_URL = 'https://newsapi.org/v2/everything?q=Technology&
-// apiKey=a70ded16d81144f9b3f50098ea0ef879'
 const BASE_HEADLINES_URL = 'https://newsapi.org/v2/top-headlines?' +
-'country=us&'
-const BASE_CATEGORY_URL = 'https://newsapi.org/v2/everything?q='
+'country=us&language=en'
+const BASE_SEARCH_URL = 'https://newsapi.org/v2/everything?q='
 
 class NewsMainList extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       searchNewsData: [],
-      newsData: []
+      newsData: [],
 
     };
 
   }
   async componentDidMount() {
-    const resp = await axios(BASE_URL)
-    this.setState(
-      {newsData: resp.data.articles}
-    )
-    this.fetchNewsList('Real Estate');
+    const newsCategory = this.props.newsCategory;
+    this.fetchBreakingNews();
+
   }
-  async fetchNewsList(category) {
-    const newsCategoryUrl = `${BASE_CATEGORY_URL}${category}&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`
-    console.log(newsCategoryUrl)
-    const resp = await axios(newsCategoryUrl);
+  async componentWillReceiveProps(nextProps) {
+    if (this.props.newsCategory !== nextProps.newsCategory) {
+      this.fetchCategoryNews(nextProps.newsCategory);
+    }
+  }
+  async fetchBreakingNews() {
+    const resp = await axios(`${BASE_HEADLINES_URL}&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`)
     this.setState(
       {newsData: resp.data.articles}
     )
-    console.log(this.state.newsData)
+  }
+
+  async fetchCategoryNews(category) {
+    const newsSearchURL = `${BASE_SEARCH_URL}${category}&language=en&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`
+    const resp = await axios(newsSearchURL);
+    this.setState(
+      {newsData: resp.data.articles}
+    )
   }
 
   handleSearch() {
@@ -48,8 +48,9 @@ class NewsMainList extends Component {
   render() {
     return (
       <div>
-        <h2> This is the main body </h2>
-
+        {this.state.newsData.map(
+          (article, index) => (<NewsCard key={index} newsCardData={article}/>)
+        )}
       </div>
     )
   }
