@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
-import NewsMainBody from './components/MainBody';
+import { Button } from 'antd'
+import NewsMainList from './components/MainList';
 import NewsHeader from './components/Header';
 import NewsFooter from './components/Footer';
 
@@ -14,7 +15,9 @@ class App extends Component {
     super();
     this.state={
       newsData: null,
+      currentMainPage: null,
     }
+    this.showMainList = this.showMainList.bind(this);
   }
   async componentDidMount() {
     const resp = await axios(BASE_URL)
@@ -23,12 +26,22 @@ class App extends Component {
       {newsData: resp.data}
     )
   }
+  menuItemSelect() {
+
+  }
+
+  showMainList() {
+    const page = this.state.currentMainPage;
+    return <NewsMainList
+          newsCategory={this.state.currentMainPage}
+        />
+  }
+
   render() {
     return (
       <div className="App">
-        <NewsHeader />
-
-        <NewsMainBody />
+        <NewsHeader menuItemSelect={this.menuItemSelect}/>
+        {this.showMainList()}
         <NewsFooter />
       </div>
     );
