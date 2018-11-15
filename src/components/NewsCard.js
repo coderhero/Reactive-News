@@ -1,20 +1,31 @@
 import React from 'react';
-import { Row, Col } from 'antd'
+import { Tag } from 'antd';
+
 export default function NewsCard(props) {
   const imgSource = props.newsCardData.urlToImage;
+  const data = props.newsCardData;
+  const placeholderImg = <img src='https://ichef.bbci.co.uk/news/1024/branded_news/7A23/production/_97176213_breaking_news_bigger.png'
+  className="card-image" alt='Reactive News'/>
+  const cardImg = <img src={data.urlToImage} className="card-image" alt='Reactive News'/>
   return (
-    <div>
-      <Row>
-        <Col span={4}></Col>
-        <Col span={14}>
-          <div>
-          <img src={imgSource} width={400} alt='Reactive News'/>
-          <Row><h4>{props.newsCardData.title}</h4></Row>
-          <Row><p>{props.newsCardData.description}</p></Row>
+    <li>
+      <div className="card-container">
+        <div className="card-img">
+          {data.urlToImage ? cardImg : placeholderImg}
+
         </div>
-        </Col>
-        <Col span={4}></Col>
-      </Row>
-    </div>
+        <div className='news-details'>
+          <a className="card-title">
+            <h2>{props.newsCardData.title}</h2>
+          </a>
+            <p className='card-description'>{props.newsCardData.description}</p>
+            <Tag color="purple" className="news-author"><span>
+              {data.author? data.author : data.source.name}</span></Tag>
+            <Tag color="cyan" className="news-date"><span>
+              {data.publishedAt.substr(0,10)}</span></Tag>
+        </div>
+
+      </div>
+    </li>
   )
 }

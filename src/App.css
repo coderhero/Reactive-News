@@ -2,3 +2,24 @@
 .App {
   text-align: center;
 }
+li {
+  list-style: none;
+  margin-top: 20px;
+}
+.card-container {
+  margin: 0 auto;
+  width: 70%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+}
+.card-image {
+  width: 400px;
+
+}
+.news-details {
+  margin: 10px;
+}
+.news-author {
+  margin-right: 40px;
+}

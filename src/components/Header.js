@@ -57,7 +57,7 @@ class NewsHeader extends Component {
               <img src={logo} alt='News Logo'/>
             </a>
           </Col>
-          <Col span={15} className="NavBar">
+          <Col span={14} className="NavBar">
             <NavBar currentNavTab={this.state.currentNavTab}
                       menuItemSelect={this.menuItemSelect}
                     />
@@ -69,7 +69,7 @@ class NewsHeader extends Component {
                     />
 
           </Col>
-          <Col span={3} className="NavLogin">
+          <Col span={4} className="NavLogin">
             <NavLogin isLoggedIn={this.state.isLoggedIn}
                       handleUserLogOut={this.handleUserLogOut}
                       handleUserLogIn={this.handleUserLogIn}

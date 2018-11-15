@@ -4,7 +4,7 @@ import {Menu, Icon, Button} from 'antd';
 
 export default function NavLogin(props) {
   const logOutComponent = <Menu.Item key="logout">
-    <span>Welcome! {props.userName}</span>
+    <span>{props.userName}</span>
     <Button type='primary'
             onClick={props.handleUserLogOut}
       >Log Out</Button>
