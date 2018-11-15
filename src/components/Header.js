@@ -11,7 +11,6 @@ class NewsHeader extends Component {
     this.state = {
       isLoggedIn: false,
       userName: '',
-      currentNavTab: this.props.newsCategory, //determine which Tab page is showing
       isToshowModal: false, // determine if to show the Login and Singup modal
       searchTerm: '',
     }
@@ -58,7 +57,7 @@ class NewsHeader extends Component {
             </a>
           </Col>
           <Col span={14} className="NavBar">
-            <NavBar currentNavTab={this.state.currentNavTab}
+            <NavBar currentNavTab={this.props.newsCategory}
                       menuItemSelect={this.menuItemSelect}
                     />
           </Col>

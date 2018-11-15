@@ -15,7 +15,9 @@ export default function NewsCard(props) {
 
         </div>
         <div className='news-details'>
-          <a className="card-title">
+          <a href={props.newsCardData.url}
+             className="card-title"
+             target="__html">
             <h2>{props.newsCardData.title}</h2>
           </a>
             <p className='card-description'>{props.newsCardData.description}</p>

@@ -7,7 +7,7 @@ export default function NavBar(props) {
     <div>
       <Menu mode="horizontal"
             onClick={props.menuItemSelect}>
-        <Menu.Item key="breaking News">
+        <Menu.Item key="breakingNews">
             <Icon type="heart" />Breaking News
         </Menu.Item>
         <Menu.Item key="technology">

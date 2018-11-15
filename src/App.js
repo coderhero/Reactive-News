@@ -10,7 +10,7 @@ class App extends Component {
   constructor() {
     super();
     this.state={
-      currentMainPage: 'breakingNew',
+      currentMainPage: '',
 
     }
     this.showMainList = this.showMainList.bind(this);
@@ -18,7 +18,7 @@ class App extends Component {
     this.handleSearch = this.handleSearch.bind(this);
   }
   async componentDidMount() {
-
+    
   }
   menuItemSelect(e) {
     this.setState({currentMainPage: e.key})
@@ -31,8 +31,8 @@ class App extends Component {
   showMainList() {
     const newsCategory = this.state.currentMainPage;
     return <NewsMainList
-          newsCategory={newsCategory}
-        />
+            newsCategory={newsCategory}
+          />
   }
 
   render() {

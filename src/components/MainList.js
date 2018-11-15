@@ -10,11 +10,8 @@ class NewsMainList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchNewsData: [],
       newsData: [],
-
     };
-
   }
   async componentDidMount() {
     const newsCategory = this.props.newsCategory;
@@ -22,7 +19,9 @@ class NewsMainList extends Component {
 
   }
   async componentWillReceiveProps(nextProps) {
-    if (this.props.newsCategory !== nextProps.newsCategory) {
+    if (nextProps.newsCategory === 'breakingNews') {
+      this.fetchBreakingNews()
+    } else if (this.props.newsCategory !== nextProps.newsCategory) {
       this.fetchCategoryNews(nextProps.newsCategory);
     }
   }
@@ -39,10 +38,6 @@ class NewsMainList extends Component {
     this.setState(
       {newsData: resp.data.articles}
     )
-  }
-
-  handleSearch() {
-
   }
 
   render() {
