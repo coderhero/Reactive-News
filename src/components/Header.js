@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Row, Col } from 'antd';
 import logo from '../news-logo.png';
 import NavBar from './NavBar';
-import NavLogin from './NavLogin';
+import NavLoginRegister from './NavLoginRegister';
+import NavUserLogout from './NavUserLogout';
 import SearchBox from './SearchBox';
 
 class NewsHeader extends Component {
@@ -48,6 +49,17 @@ class NewsHeader extends Component {
   }
 
   render() {
+    const NavLoginRegisterCompo =
+    <NavLoginRegister isLoggedIn={this.state.isLoggedIn}
+                      handleUserLogIn={this.handleUserLogIn}
+                      handleUserRegister={this.handleUserRegister}
+
+             />
+    const NavUserLogoutCompo =
+    <NavUserLogout isLoggedIn={this.state.isLoggedIn}
+                   handleUserLogOut={this.handleUserLogOut}
+                   userName={this.state.userName}
+             />
     return (
       <header style={{marginTop: 5}}>
         <Row type="flex" align="middle">
@@ -68,12 +80,8 @@ class NewsHeader extends Component {
                     />
 
           </Col>
-          <Col span={4} className="NavLogin">
-            <NavLogin isLoggedIn={this.state.isLoggedIn}
-                      handleUserLogOut={this.handleUserLogOut}
-                      handleUserLogIn={this.handleUserLogIn}
-                      userName={this.state.userName}
-                     />
+          <Col span={4} className="NavLoginRegister">
+            {this.state.isLoggedIn ? NavUserLogoutCompo : NavLoginRegisterCompo}
           </Col>
         </Row>
       </header>

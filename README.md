@@ -1,12 +1,13 @@
 # Reactive-News
 ### Introduction
 This is a news application that provides users with latest breaking news and other
-categories includes Technology, Politics, Sports, economy and Real Estate.
+categories includes Technology, Politics, Sports, Economy and Real Estate.
 It consumes [News API](https://newsapi.org/docs)
 that indexes articles from over 30,000 worldwide sources.
 
 ### Features and Specs
 - User is able to search news from over 30,000 news sources
+- User can click on the news title and get redirected to the source website
 - some UI components are empowered by [Ant Design of React](https://github.com/ant-design/ant-design/)
 - User is able to Log in, Sign up, or Log out.
 ### Usage
