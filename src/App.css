@@ -23,3 +23,36 @@ li {
 .news-author {
   margin-right: 40px;
 }
+.NavLoginRegister {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 20px;
+
+}
+.NavLoginRegister > * {
+  flex: 1;
+}
+.sign-up-btn {
+  margin-left: 20px;
+}
+.Nav-user-logout {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 20px;
+}
+.username {
+  text-align: center;
+  vertical-align: middle;
+  padding-top: 3px;
+  font-size: 16px;
+  font-weight: 600;
+}
+.card-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+.github-logo {
+  width: 50px;
+}

@@ -5,6 +5,7 @@ import NavBar from './NavBar';
 import NavLoginRegister from './NavLoginRegister';
 import NavUserLogout from './NavUserLogout';
 import SearchBox from './SearchBox';
+import LoginRegisterModal from './LoginRegisterModal'
 
 class NewsHeader extends Component {
   constructor(props) {
@@ -80,7 +81,7 @@ class NewsHeader extends Component {
                     />
 
           </Col>
-          <Col span={4} className="NavLoginRegister">
+          <Col span={4} className="NavUser">
             {this.state.isLoggedIn ? NavUserLogoutCompo : NavLoginRegisterCompo}
           </Col>
         </Row>

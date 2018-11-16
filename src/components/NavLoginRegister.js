@@ -1,18 +1,20 @@
 import React from 'react';
-import {Menu, Button} from 'antd';
-import LoginRegisterModal from './LoginRegisterModal'
+import { Button } from 'antd';
 
 export default function NavLoginRegister(props) {
     return (
-      <div>
-        <Menu>
-          <Menu.Item key="login">
+      <div className="NavLoginRegister">
+
+
+
             <Button type='primary'
                     onClick={props.handleUserLogIn}
               >Log In</Button>
-            <Button>Sign Up</Button>
-          </Menu.Item>
-        </Menu>
+
+            <Button className="sign-up-btn">Sign Up</Button>
+
+
+
       </div>
     )
 
