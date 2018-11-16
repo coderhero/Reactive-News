@@ -2,7 +2,7 @@ import React from 'react';
 import { Tag } from 'antd';
 
 export default function NewsCard(props) {
-  const imgSource = props.newsCardData.urlToImage;
+
   const data = props.newsCardData;
   const placeholderImg = <img src='https://ichef.bbci.co.uk/news/1024/branded_news/7A23/production/_97176213_breaking_news_bigger.png'
   className="card-image" alt='Reactive News'/>
@@ -22,7 +22,7 @@ export default function NewsCard(props) {
           </a>
             <p className='card-description'>{props.newsCardData.description}</p>
             <Tag color="purple" className="news-author"><span>
-              {data.author? data.author : data.source.name}</span></Tag>
+              {data.author? data.author : 'Reliable Sources'}</span></Tag>
             <Tag color="cyan" className="news-date"><span>
               {data.publishedAt.substr(0,10)}</span></Tag>
         </div>

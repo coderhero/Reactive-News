@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import axios from 'axios';
-import { Button } from 'antd'
 import NewsMainList from './components/MainList';
 import NewsHeader from './components/Header';
 import NewsFooter from './components/Footer';
@@ -18,7 +16,7 @@ class App extends Component {
     this.handleSearch = this.handleSearch.bind(this);
   }
   async componentDidMount() {
-    
+
   }
   menuItemSelect(e) {
     this.setState({currentMainPage: e.key})

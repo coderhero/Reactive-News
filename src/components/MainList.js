@@ -14,7 +14,6 @@ class NewsMainList extends Component {
     };
   }
   async componentDidMount() {
-    const newsCategory = this.props.newsCategory;
     this.fetchBreakingNews();
 
   }

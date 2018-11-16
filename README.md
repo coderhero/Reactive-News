@@ -1,14 +1,22 @@
 # Reactive-News
-### MVP
 ### Introduction
-This is a news application that consumes [News API](https://newsapi.org/docs)
-some UI components are empowered by [Ant Design of React](https://github.com/ant-design/ant-design/)
-### Features and Specs
-- User
-- User is able to search news from over 30,000 news sources
--
-### Usage
+This is a news application that provides users with latest breaking news and other
+categories includes Technology, Politics, Sports, economy and Real Estate.
+It consumes [News API](https://newsapi.org/docs)
+that indexes articles from over 30,000 worldwide sources.
 
+### Features and Specs
+- User is able to search news from over 30,000 news sources
+- some UI components are empowered by [Ant Design of React](https://github.com/ant-design/ant-design/)
+- User is able to Log in, Sign up, or Log out.
+### Usage
+- Fork or clone this repo
+- cd into the repo
+- run npm install --save antd axios
+- npm start
+### Code Snippet
+Ant Design is a super convenient UI library for building responsive and
+interactive React applications.
 ```javascript
 <Col span={14} className="NavBar">
   <NavBar currentNavTab={this.props.newsCategory}
@@ -30,4 +38,5 @@ some UI components are empowered by [Ant Design of React](https://github.com/ant
            />
 </Col>
 ```
+### wireFrame
 ![wireframe](wireFrame.jpg)

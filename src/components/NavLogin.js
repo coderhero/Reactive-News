@@ -1,5 +1,5 @@
 import React from 'react';
-import {Menu, Icon, Button} from 'antd';
+import {Menu, Button} from 'antd';
 
 
 export default function NavLogin(props) {

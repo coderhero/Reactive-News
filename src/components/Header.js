@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Row, Col } from 'antd';
+import { Row, Col } from 'antd';
 import logo from '../news-logo.png';
 import NavBar from './NavBar';
 import NavLogin from './NavLogin';
