@@ -1,7 +1,8 @@
 # Reactive-News
 ### Introduction
-This is a news application that provides users with latest breaking news and other
-categories includes Technology, Politics, Sports, Economy and Real Estate.
+This is a news application [Reactive News](http://stupid-paint.surge.sh/) that
+provides users with latest breaking news and other categories includes Technology, Politics, Sports, Economy and Real Estate.
+[Youtube Link](https://www.youtube.com/watch?v=jjfTuyLO22A)
 It consumes [News API](https://newsapi.org/docs)
 that indexes articles from over 30,000 worldwide sources.
 
@@ -19,6 +20,7 @@ that indexes articles from over 30,000 worldwide sources.
 Ant Design is a super convenient UI library for building responsive and
 interactive React applications.
 ```javascript
+</Col>
 <Col span={14} className="NavBar">
   <NavBar currentNavTab={this.props.newsCategory}
             menuItemSelect={this.menuItemSelect}
@@ -31,12 +33,8 @@ interactive React applications.
           />
 
 </Col>
-<Col span={4} className="NavLogin">
-  <NavLogin isLoggedIn={this.state.isLoggedIn}
-            handleUserLogOut={this.handleUserLogOut}
-            handleUserLogIn={this.handleUserLogIn}
-            userName={this.state.userName}
-           />
+<Col span={4} className="NavUser">
+  {this.state.isLoggedIn ? NavUserLogoutCompo : NavLoginRegisterCompo}
 </Col>
 ```
 ### wireFrame

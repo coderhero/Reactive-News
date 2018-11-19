@@ -1,5 +1,6 @@
 import React from 'react';
 import {Menu, Button, Row} from 'antd';
+import PropTypes from 'prop-types';
 
 export default function NavUserLogout(props) {
   return (
@@ -10,4 +11,7 @@ export default function NavUserLogout(props) {
             >Log Out</Button>
     </div>
   )
+}
+NavUserLogout.PropTypes = {
+  userName: PropTypes.string.isRequired
 }

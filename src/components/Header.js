@@ -13,8 +13,9 @@ class NewsHeader extends Component {
     this.state = {
       isLoggedIn: false,
       userName: '',
-      isToshowModal: false, // determine if to show the Login and Singup modal
       searchTerm: '',
+      isToshowModal: false, // determine if to show the Login and Singup modal
+      currentModal: ''
     }
     this.menuItemSelect = this.props.menuItemSelect;
     this.handleSearch = this.props.handleSearch;
@@ -24,7 +25,7 @@ class NewsHeader extends Component {
 
   }
 
-  handleUserLogIn() {
+  handleUserLogIn(e) {
     // use setTimeout to mimic the API call
     setTimeout(
       () => {
@@ -33,7 +34,17 @@ class NewsHeader extends Component {
           userName: 'Yan',
         })
       }, 300)
+
   }
+  handleLoginBtn(e) {
+    if (e.currentTarget.value === 'login') {
+      this.setState({currentModal: 'login',
+                     isToshowModal: true});
+    }
+  }
+  handleLogoutBtn(e) {
+
+}
 
   handleUserLogOut() {
     setTimeout(
@@ -79,10 +90,11 @@ class NewsHeader extends Component {
                        handleUserInput={this.handleUserInput}
                        value={this.state.searchTerm}
                     />
-
           </Col>
           <Col span={4} className="NavUser">
             {this.state.isLoggedIn ? NavUserLogoutCompo : NavLoginRegisterCompo}
+            {/* <LoginRegisterModal isVisible={this.state.isToshowModal} /> */}
+
           </Col>
         </Row>
       </header>
